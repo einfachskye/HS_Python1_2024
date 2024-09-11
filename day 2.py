@@ -1,6 +1,6 @@
 print("hello world!")
 print("hello skye!")
-def fibo (n):
+def fibo(n):
     if n == 1 or n == 2 :
         return 1 
     else :
