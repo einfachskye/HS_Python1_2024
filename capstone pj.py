@@ -1,3 +1,4 @@
+import os
 def play_game(best_of_n):
     choices = ['rock', 'paper', 'scissors']
     player1_score = 0
@@ -17,7 +18,7 @@ def play_game(best_of_n):
             print("Invalid choice for Player 1! Please enter rock, paper, or scissors.")
             continue
         
-        
+        os.system("clear")
         player2_choice = input("Player 2, enter rock, paper, or scissors: ").lower()
         
         if player2_choice not in choices:
