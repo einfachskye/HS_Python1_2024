@@ -1,4 +1,27 @@
 import os
+
+player1_score = 0
+player2_score = 0 
+
+def decision_loop(player1_choice, player2_choice):
+    global player1_score
+    global player2_score
+    if player1_choice == player2_choice:
+            print("It's a tie this round!")
+    elif (player1_choice == 'rock' and player2_choice == 'scissors') or \
+        (player1_choice == 'scissors' and player2_choice == 'paper') or \
+        (player1_choice == 'paper' and player2_choice == 'rock'):
+            print("Player 1 wins this round!")
+            player1_score += 1
+    else:
+        print("Player 2 wins this round!")
+        player2_score += 1
+
+
+
+
+
+
 def play_game(best_of_n):
     choices = ['rock', 'paper', 'scissors']
     player1_score = 0
@@ -25,17 +48,8 @@ def play_game(best_of_n):
             print("Invalid choice for Player 2! Please enter rock, paper, or scissors.")
             continue
         
+        decision_loop(player1_choice, player2_choice)
         
-        if player1_choice == player2_choice:
-            print("It's a tie this round!")
-        elif (player1_choice == 'rock' and player2_choice == 'scissors') or \
-             (player1_choice == 'scissors' and player2_choice == 'paper') or \
-             (player1_choice == 'paper' and player2_choice == 'rock'):
-            print("Player 1 wins this round!")
-            player1_score += 1
-        else:
-            print("Player 2 wins this round!")
-            player2_score += 1
 
         round_number += 1
 
