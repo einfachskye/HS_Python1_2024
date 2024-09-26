@@ -2,6 +2,10 @@ import os
 
 player1_score = 0
 player2_score = 0 
+choices = ['rock', 'paper', 'scissors']
+
+player1_choice = ""
+player2_choice = ""
 
 def decision_loop(player1_choice, player2_choice):
     global player1_score
@@ -18,35 +22,43 @@ def decision_loop(player1_choice, player2_choice):
         player2_score += 1
 
 
+def player_decision_loop(player):
+     global player1_choice
+     global player2_choice
+     if player == 1:
+          while True:
+            player1_choice = input("Player 1, enter rock, paper, or scissors: ").lower()
+            if player1_choice not in choices:
+                print("Invalid choice for Player 1! Please enter rock, paper, or scissors.")
+            else:
+                 break
+     elif player == 2:
+            while True:
+                player2_choice = input("Player 2, enter rock, paper, or scissors: ").lower()
+                if player2_choice not in choices:
+                    print("Invalid choice for Player 2! Please enter rock, paper, or scissors.")
+                else:
+                    break
+        
 
 
 
 
 def play_game(best_of_n):
-    choices = ['rock', 'paper', 'scissors']
-    player1_score = 0
-    player2_score = 0
-    
-    
     rounds_needed_to_win = (best_of_n // 2) + 1
     
     round_number = 1
     while player1_score < rounds_needed_to_win and player2_score < rounds_needed_to_win:
         print(f"\nRound {round_number}:")
-        
-        
-        player1_choice = input("Player 1, enter rock, paper, or scissors: ").lower()
-        
-        if player1_choice not in choices:
-            print("Invalid choice for Player 1! Please enter rock, paper, or scissors.")
-            continue
+
+
+        player_decision_loop(player=1)
         
         os.system("clear")
-        player2_choice = input("Player 2, enter rock, paper, or scissors: ").lower()
+
+        player_decision_loop(player=2)
+            
         
-        if player2_choice not in choices:
-            print("Invalid choice for Player 2! Please enter rock, paper, or scissors.")
-            continue
         
         decision_loop(player1_choice, player2_choice)
         
